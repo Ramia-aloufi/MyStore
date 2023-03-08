@@ -1,0 +1,20 @@
+    <div class="container  shadow-sm  rounded overflow-hidden"  style="height: 120px;" >
+        <div class="row p-1" >
+            <div class="col-6 justify-content-center align-items-center overflow-hidden">
+                <img class="img-responsive overflow-hidden h-50 object-fit-cover w-75" src={{product.image}} alt="">
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <span>{{product.title  | slice:0:20}} {{product.title.length >20 ? '...': ''}}</span>
+                    <span>{{product.price}}$</span>
+                    <div class="d-flex flex-row">
+                        <input type="number" value={{product.quantity}} min="1" [(ngModel)]="upd"(change)="updQuantity(product)"><button (click)="deletItem(product)"  class=" btn bg-danger text-white p-1">X</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+

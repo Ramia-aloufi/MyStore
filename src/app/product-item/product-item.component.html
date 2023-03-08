@@ -1,0 +1,6 @@
+<div class="container row gy-1 p-4 shadow-sm rounded  justify-content-center " style="height: 350px;"   role="button">
+    <img class="img-responsive overflow-hidden h-50 object-fit-cover w-75"  src={{product.image}} alt="{{product.image}}  " [routerLink]="['detail']" [state]="product" >    
+    <h5 class="overflow-hidden h-20">{{product.title  | slice:0:20}} {{product.title.length >20 ? '...': ''}}</h5>
+    <p>{{product.price}} $ </p>
+    <input type="submit" value="add to cart" class="btn btn-primary" role="button" (click)="addToCart(product)">
+</div>
