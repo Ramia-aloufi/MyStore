@@ -1,24 +1,58 @@
 
 <!-- <div class=" align-items-center  justify-content-center align-items-center h-100"> -->
-    <form class="d-flex flex-column g-5" #ngform="ngForm"(ngSubmit)="onSubmit()"ng-controller="ctrl" >
+    <form class="d-flex flex-column w-75 " #ngform="ngForm"(ngSubmit)="onSubmit()"ng-controller="ctrl" >
         <div class="form-group needs-validation">
         <label for="">Full Name</label>
-        <input class="form-control" type="text" name="name" required #ngname="ngModel" [(ngModel)]="name"  placeholder="write full name..">
-        <br>
+        <input class="form-control" type="text" name="name" required  minlength="4"  #ngname="ngModel" [(ngModel)]="name" appForbiddenName="user"  placeholder="write full name..">
+        <div  *ngIf="ngname.invalid && (ngname.dirty || ngname.touched)"
+        >
+    
+      <div  *ngIf="ngname.errors?.['required']">
+        Name is required.
+      </div>
+      <div *ngIf="ngname.errors?.['minlength']">
+        Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="ngname.errors?.['forbiddenName']">
+        Name cannot be user.
+      </div>
+    
+        </div>
+        
         </div>
          <div class="form-group needs-validation">
         <label for="">Address</label>
-        <input class="form-control" type="text" name="address" required  [(ngModel)]="address" placeholder="write address..">
-        <br>
+        <input class="form-control" type="text" name="address"  #ngaddress="ngModel"  required minlength="4" [(ngModel)]="address" placeholder="write address..">
+        <div  *ngIf="ngaddress.invalid && (ngaddress.dirty || ngaddress.touched)"
+        >
+        
+        <div  *ngIf="ngaddress.errors?.['required']">
+        Name is required.
+        </div>
+        <div *ngIf="ngaddress.errors?.['minlength']">
+        Name must be at least 4 characters long.
+        </div>
+        </div>
+        
         </div>
         <div class="form-group needs-validation">
         <label  for="">Credit Card</label>
-        <input class="form-control" type="number" name="card" required  [(ngModel)]="card" placeholder="write acredit card">
-        <br>
+        <input class="form-control" type="number" name="card" #ngcard="ngModel" required [(ngModel)]="card" placeholder="write acredit card">
+        <div  *ngIf="ngcard.invalid && (ngcard.dirty || ngcard.touched)">
+        
+        <div *ngIf="ngcard.errors?.['required']">
+        Card is required.
+        </div>
+        </div>
+        
         </div>
         <button type="submit" [disabled]="ngform.invalid"  [routerLink]="['/confirm']" class="btn btn-info text-white">plase order</button>
     </form>
 
-<div *ngIf="ngname.invalid">
 
-</div>
+    
+
+    
+
+
+

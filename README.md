@@ -1,6 +1,15 @@
 # MyStore
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
+Project allow user to display product ,display product details,add product to cart and placed order
+
+# MyStore-Component
+-header component - contain router link to product list and cart
+-Product List component - contain product item component
+-Product details component - router link when click on product
+-shoping cart - contain cart item component to disply cart product and cart form to placed order
+-order confirmation - router link form cart form
+
 
 ## Installison
 -bootstrap

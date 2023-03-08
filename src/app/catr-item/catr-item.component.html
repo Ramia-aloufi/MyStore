@@ -8,7 +8,7 @@
                     <span>{{product.title  | slice:0:20}} {{product.title.length >20 ? '...': ''}}</span>
                     <span>{{product.price}}$</span>
                     <div class="d-flex flex-row">
-                        <input type="number" value={{product.quantity}} min="1" [(ngModel)]="upd"(change)="updQuantity(product)"><button (click)="deletItem(product)"  class=" btn bg-danger text-white p-1">X</button>
+                        <input type="number" value={{product.quantity}} min="1" [(ngModel)]="upd"(ngModelChange)="updQuantity(product)"><button (click)="deletItem(product)"  class=" btn bg-danger text-white p-1">X</button>
                     </div>
                 </div>
 

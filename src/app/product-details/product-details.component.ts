@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Product } from '../model/product';
+import { CatrDataService } from '../catr-data.service';
 
 @Component({
   selector: 'app-product-details',
@@ -11,13 +12,14 @@ export class ProductDetailsComponent implements OnInit {
   product:Product
   @Output() add = new EventEmitter()
 
-  constructor(private location:Location){}
+  constructor(private location:Location,private cartData:CatrDataService){}
 
 ngOnInit(): void {
   this.product = this.location.getState() as Product;
 }
 
-addToCart() {
-  this.add.emit(5)
+addToCart(product: Product) {
+  alert(product.title)
+  this.cartData.addToCart(product)
 }
 }
